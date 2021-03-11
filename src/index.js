@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
 
 // square
 
@@ -9,7 +9,7 @@ function Square(props) {
     <button className="square" onClick={props.onClick}>
       {props.value}
     </button>
-  )
+  );
 }
 
 
@@ -43,8 +43,8 @@ class Board extends React.Component {
         {this.renderSquare(8)}
       </div>
     </div>
-    )
-  }
+    );
+  };
 }
 
 
@@ -59,7 +59,7 @@ class Game extends React.Component {
       stepNumber: 0,
       xIsNext: true,
     }
-  }
+  };
 
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -82,8 +82,8 @@ class Game extends React.Component {
     this.setState({
       stepNumber: step,
       xIsNext: (step % 2) === 0,
-    })
-  }
+    });
+  };
 
   render() {
     const history = this.state.history;
@@ -121,10 +121,12 @@ class Game extends React.Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 // ========================================
+
+
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
@@ -142,7 +144,7 @@ function calculateWinner(squares) {
       return squares[a];
     }
     }
-    return null;
+  return null;
 
 }
 
@@ -150,3 +152,4 @@ ReactDOM.render(
   <Game />,
   document.getElementById('root')
 );
+
